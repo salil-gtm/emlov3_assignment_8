@@ -15,52 +15,31 @@ Adamantium is a custom python package which currently supports:
 - VIT model for training, evaluation & inference on Cats-Dogs & CIFAR10 dataset.
 - GPT model training and optuna based hyperparameter optimization over Harry Potter books dataset.
 - Experiment tracking using MLFlow, AIM, Tensorboard & CSV logger.
+- Demo of VIT model using gradio.
 
 All functionalities can be controlled by hydra configs.
 
-## Optuna Hyperparameter Optimization
+## VIT (scripted) Gradio Demo
 
-To run optuna hyperparameter optimization for GPT model, run the following command:
+1. Pull the docker image from dockerhub.
 ```bash
-adamantium_train -m experiment=hp_gpt data.num_workers=2 tuner=False
+docker pull salilgtm/emlov3_assignment_8:latest
 ```
 
-Best Hyperparameters:
-```yaml
-  n_embed: 256
-  n_heads: 4
-  n_decoder_blocks: 4
-  drop_p: 0.1
-  block_size: 8
-```
-
-![optuna_search](assets/optuna_search.png)
-
-![all_trials](assets/all_trials.png)
-
-![best_params](assets/best_params.png)
-
-Best val/loss_best: 2.221
-
-Note - A6000 GPU was used for training with a budget cap of 10$, hence less trails but paramters with higher values were tested.
-
-
-## Best Hyperparameters for 10 Epochs
-
-To run training for 10 epochs with best hyperparameters, run the following command:
+2. Run the docker image.
 ```bash
-adamantium_train experiment=hp_gpt_best data.num_workers=4
+docker run -p 8080:8080 salilgtm/emlov3_assignment_8:latest
 ```
 
-```yaml
-    learning_rate: 0.001096
-    batch_size: 2048
-```
-1 epoch took 1.2hrs on A6000 GPU, estimated time for 10 epochs was ~12hrs. Hence the idea was dropped.
+![VIT Demo](./assets/gradio_vit.png)
 
-### Best Model Metrics - 1 Epoch
-![best_model](assets/best_model_1epoch.png)
+Notes:
+- The docker image size is 1.27GB.
+- Model performance can be drastically improved, current aim was to get a working gradio demo.
 
+## GPT (trace) Gradio Demo
+
+<TBD>
 
 ## Past Documentation
 
