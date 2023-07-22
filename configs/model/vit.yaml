@@ -3,7 +3,7 @@ _target_: adamantium.models.vit_module.VitLitModule
 num_classes: 1000
 in_channels: 3
 img_size: 32
-patch_size: 4
+patch_size: 8
 emb_size: 64
 depth: 6
 

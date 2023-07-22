@@ -1,0 +1,47 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=cifar10_jit
+
+defaults:
+  - override /data: cifar10.yaml
+  - override /model: vit.yaml
+  - override /trainer: default.yaml
+  - override /logger: many_loggers.yaml
+  - override /callbacks: default.yaml
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+experiment_name: "cifar10-vit-scripted-experiment"
+
+tags:
+  cifar: "cifar10_jit"
+
+seed: 0
+
+trainer:
+  min_epochs: 0
+  max_epochs: 10
+
+data:
+  num_workers: 8
+
+model:
+  _target_: adamantium.models.vit_jit_module.VitLitModule
+  num_classes: 10
+  emb_size: 64
+  depth: 12
+  img_size: 224
+  patch_size: 4
+
+compile: False
+
+test: True
+
+torchscript: True
+
+logger:
+  mlflow:
+    tags: ${tags}
+    experiment_name: ${experiment_name}

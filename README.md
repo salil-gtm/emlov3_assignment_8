@@ -1,4 +1,4 @@
-# EMLOv3 | Assignment 7
+# EMLOv3 | Assignment 8
 
 [![pytorch](https://img.shields.io/badge/PyTorch_2.0+-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
 [![lightning](https://img.shields.io/badge/-Lightning_2.0+-792ee5?logo=pytorchlightning&logoColor=white)](https://pytorchlightning.ai/)
@@ -67,6 +67,7 @@ adamantium_train experiment=hp_gpt_best data.num_workers=4
 - [Assignment 4](https://github.com/salil-gtm/emlov3_assignment_4)
 - [Assignment 5](https://github.com/salil-gtm/emlov3_assignment_5)
 - [Assignment 6](https://github.com/salil-gtm/emlov3_assignment_6)
+- [Assignment 7](https://github.com/salil-gtm/emlov3_assignment_7)
 
 ## Author
 
