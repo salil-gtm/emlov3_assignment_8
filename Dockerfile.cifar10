@@ -5,13 +5,13 @@ LABEL description="Dockerfile for Assignment 8 of EMLOv3 - VIT Gradio."
 
 WORKDIR /workspace
 
-COPY setup.py setup.py
 COPY adamantium/ adamantium/
 COPY configs/ configs/
-COPY logs/ logs/
+COPY logs/train/runs/ logs/train/runs/
 
 RUN pip install --no-cache-dir -r adamantium/demo/cifar10_jit/requirements.txt
-RUN pip install --no-cache-dir -e .
+RUN pip install -e .
+RUN rm -rf /root/.cache/pip
 
 EXPOSE 8080
 
