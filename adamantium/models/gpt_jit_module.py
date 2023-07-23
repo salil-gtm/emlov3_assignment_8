@@ -92,7 +92,7 @@ class ResidualAdd(nn.Module):
 
         self.fn = fn
 
-    def forward(self, x: torch.Tensor):
+    def forward(self, x):
         res = x
 
         out = self.fn(x)
@@ -114,7 +114,7 @@ class FeedForwardBlock(nn.Sequential):
 
 class GPTDecoderBlock(nn.Module):
     def __init__(
-        self, emb_size=768, drop_p=0.0, forward_expansion=4, forward_drop_p=0, n_heads=4
+        self, emb_size=768, drop_p=0.0, forward_expansion=4, forward_drop_p=0.0, n_heads=4
     ):
         super(GPTDecoderBlock, self).__init__()
 
