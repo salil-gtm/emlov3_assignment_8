@@ -215,7 +215,7 @@ class GPTLitModule(LightningModule):
         block_size=8,
         n_heads=4,
         drop_p=0.0,
-        n_vocab=100277,
+        n_vocab=100277, Optional[torch.Tensor] = None):
         n_decoder_blocks=4,
     ):
         super().__init__()

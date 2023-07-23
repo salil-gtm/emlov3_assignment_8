@@ -53,7 +53,7 @@ class MultiHeadAttention(nn.Module):
             'nh b vt dim -> b vt (nh dim)'
         )
 
-    def forward(self, x, mask=None):
+    def forward(self, x: torch.Tensor, mask: Optional[torch.Tensor] = None):
         key = self.keys(x)
         query = self.queries(x)
         value = self.values(x)
@@ -205,7 +205,7 @@ class GPT(nn.Module):
                 idx if idx.size(1) <= self.block_size else idx[:, -self.block_size :]
             )
             # forward the model to get the logits for the index in the sequence
-            logits, _ = self(idx_cond)
+            logits, _ = self(idx_cond, targets=None, mask=None)
             # pluck the logits at the final step and scale by desired temperature
             logits = logits[:, -1, :] / temperature
             # optionally crop the logits to only the top k options
