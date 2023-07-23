@@ -16,7 +16,8 @@ setup(
             "adamantium_train = adamantium.train:main",
             "adamantium_eval = adamantium.eval:main",
             "adamantium_infer = adamantium.infer:main",
-            "adamantium_demo_cifar10 = adamantium.demo.cifar10_jit.gradio:main"
+            "adamantium_demo_cifar10 = adamantium.demo.cifar10_jit.gradio:main",
+            "adamantium_demo_gpt = adamantium.demo.gpt_jit.gradio:main"
         ]
     },
 )

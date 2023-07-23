@@ -6,7 +6,7 @@ defaults:
   - _self_
   - paths: default.yaml
 
-  - demo: cifar10_demo.yaml
+  - demo: gpt_demo.yaml
 
 # task name, determines output directory path
 task_name: "demo"
