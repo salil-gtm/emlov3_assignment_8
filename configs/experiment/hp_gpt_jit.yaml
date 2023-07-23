@@ -1,0 +1,43 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=cifar10
+
+defaults:
+  - override /data: hp.yaml
+  - override /model: gpt_jit.yaml
+  - override /trainer: default.yaml
+  - override /logger: many_loggers.yaml
+  - override /callbacks: default.yaml
+  - override /hydra: default.yaml
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+experiment_name: "hp-gpt-trace-experiment"
+
+tags:
+  hp: "gpt-demo"
+
+seed: 0
+
+trainer:
+  min_epochs: 0
+  max_epochs: 1
+  accelerator: auto
+  devices: 1
+
+data:
+  num_workers: 2
+  batch_size: 256
+
+tuner: False
+
+compile: False
+
+torchtrace: True
+
+logger:
+  mlflow:
+    tags: ${tags}
+    experiment_name: ${experiment_name}

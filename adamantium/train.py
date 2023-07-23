@@ -95,6 +95,19 @@ def train(cfg: DictConfig) -> Tuple[dict, dict]:
 
         log.info(f"Saving traced model to {cfg.paths.output_dir}/model.script.pt")
 
+    if cfg.get("torchtrace"):
+        log.info("Tracing Model ...")
+
+        # currently made specfic to GPT model
+        input_sample = torch.randint(0, 128, (128, datamodule.hparams.block_size))
+        
+        model.eval()
+        traced_model = torch.jit.trace(model, input_sample)
+
+        torch.jit.save(traced_model, f"{cfg.paths.output_dir}/model.trace.pt")
+
+        log.info(f"Saving traced model to {cfg.paths.output_dir}/model.trace.pt")
+
     if cfg.get("test"):
         log.info("Starting testing!")
         ckpt_path = trainer.checkpoint_callback.best_model_path

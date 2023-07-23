@@ -1,0 +1,13 @@
+_target_: adamantium.models.gpt_jit_module.GPTLitModule
+
+learning_rate: 1e-3
+block_size: ${data.block_size}
+
+model:
+  _target_: adamantium.models.gpt_jit_module.GPT
+  vocab_size: 100277
+  block_size: ${data.block_size}
+  n_embed: 64
+  n_heads: 4
+  drop_p: 0.1
+  n_decoder_blocks: 2

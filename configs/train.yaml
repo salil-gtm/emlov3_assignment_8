@@ -42,3 +42,5 @@ ckpt_path: null
 seed: 0
 
 torchscript: False
+
+torchtrace: False
