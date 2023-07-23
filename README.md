@@ -15,7 +15,7 @@ Adamantium is a custom python package which currently supports:
 - VIT model for training, evaluation & inference on Cats-Dogs & CIFAR10 dataset.
 - GPT model training and optuna based hyperparameter optimization over Harry Potter books dataset.
 - Experiment tracking using MLFlow, AIM, Tensorboard & CSV logger.
-- Demo of VIT model using gradio.
+- Demo of VIT and GPT model using gradio.
 
 All functionalities can be controlled by hydra configs.
 
@@ -39,7 +39,27 @@ Notes:
 
 ## GPT (trace) Gradio Demo
 
-<TBD>
+1. To run the demo, clone the repository.
+```bash
+git clone https://github.com/salil-gtm/emlov3_assignment_8.git
+```
+
+2. Install the requirements.
+```bash
+pip install -r requirements.txt
+```
+
+3. Install Adamantium.
+```bash
+pip install -e .
+```
+
+4. Run the demo.
+```bash
+adamantium_demo_gpt
+```
+
+![GPT Demo](./assets/gradio_gpt.png)
 
 ## Past Documentation
 
